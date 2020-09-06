@@ -3,7 +3,7 @@ package com.zeal.android.router.core;
 public class Router {
 
     public interface OnRouteListener{
-        Class getClazz(String path);
+        Class<?> getClazz(String path);
     }
 
     private OnRouteListener onRouteListener;

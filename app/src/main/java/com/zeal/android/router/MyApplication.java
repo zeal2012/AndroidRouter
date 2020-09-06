@@ -15,9 +15,9 @@ public class MyApplication extends Application {
 
         Router.getInstance().addOnRouteListener(new Router.OnRouteListener() {
             @Override
-            public Class getClazz(String path) {
+            public Class<?> getClazz(String path) {
                 try {
-                    return RouteUtil.getClass(path);
+                    return RouteUtil.getClazz(path);
                 } catch (ClassNotFoundException e) {
                     e.printStackTrace();
                 } catch (NoSuchMethodException e) {

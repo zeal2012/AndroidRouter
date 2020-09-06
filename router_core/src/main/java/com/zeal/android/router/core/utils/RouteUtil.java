@@ -19,9 +19,9 @@ public class RouteUtil {
         return path.substring(path.lastIndexOf("/") + 1);
     }
 
-    public static Class getClass(String path) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+    public static Class<?> getClazz(String path) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         Class<?> clazz = Class.forName(RouteUtil.getClassName(path));
         Method method = clazz.getMethod(RouteConsts.METHOD_NAME, String.class);
-        return (Class) method.invoke(null, RouteUtil.getActivityTag(path));
+        return (Class<?>) method.invoke(null, RouteUtil.getActivityTag(path));
     }
 }
