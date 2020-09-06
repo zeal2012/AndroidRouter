@@ -6,9 +6,8 @@ import android.support.annotation.Nullable;
 
 import com.zeal.android.router.R;
 import com.zeal.android.router.core.Route;
-import com.zeal.android.router.core.RouteConsts;
 
-@Route(path = RouteConsts.MODULE_APP + "/ThirdActivity_tag")
+@Route(path = "/app/ThirdActivity_tag")
 public class ThirdActivity extends Activity {
 
     @Override

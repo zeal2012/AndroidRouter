@@ -7,10 +7,9 @@ import android.support.annotation.Nullable;
 import android.view.View;
 
 import com.zeal.android.router.core.Route;
-import com.zeal.android.router.core.RouteConsts;
 import com.zeal.android.router.core.Router;
 
-@Route(path = RouteConsts.MODULE_1 + "/Module1ActivityTAG")
+@Route(path = "/module1/Module1ActivityTAG")
 public class Module1Activity extends Activity {
 
     @Override
@@ -21,7 +20,7 @@ public class Module1Activity extends Activity {
         findViewById(R.id.btn_test).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Class clazz = Router.getInstance().getClazz(RouteConsts.MODULE_2 + "/Module2Activity");
+                Class clazz = Router.getInstance().getClazz("/module2/Module2Activity");
                 startActivity(new Intent(Module1Activity.this, clazz));
             }
         });

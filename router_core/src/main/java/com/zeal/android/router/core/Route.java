@@ -10,7 +10,7 @@ import java.lang.annotation.Target;
 @Target(ElementType.TYPE)
 public @interface Route {
     /**
-     *路由的路径，标识一个路由节点
+     *路由的路径，标识一个路由节点, /module/activity
      */
     String path();
 }

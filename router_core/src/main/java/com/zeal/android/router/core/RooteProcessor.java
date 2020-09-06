@@ -49,15 +49,15 @@ public class RooteProcessor extends AbstractProcessor {
             String path = null;
             String simpleClassName;
 
-//            for (TypeElement type : types) {
-//                path = type.getAnnotation(Route.class).path();          //path_ThirdActivity
-//                className = type.asType().toString();            //com.example.lsn16_test2.ThirdActivity
-//                simpleName = type.getSimpleName().toString();    //ThirdActivity
-//                System.out.println("===========================");
-//                System.out.println("path:" + path);
-//                System.out.println("className:" + className);
-//                System.out.println("simpleName:" + simpleName.toString());
-//            }
+            /*for (TypeElement type : types) {
+                path = type.getAnnotation(Route.class).path();          //path_ThirdActivity
+                className = type.asType().toString();            //com.example.lsn16_test2.ThirdActivity
+                simpleClassName = type.getSimpleName().toString();    //ThirdActivity
+                System.out.println("===========================");
+                System.out.println("path:" + path);
+                System.out.println("className:" + className);
+                System.out.println("simpleName:" + simpleClassName.toString());
+            }*/
 
             StringBuffer stringBuffer = new StringBuffer();
             stringBuffer.append("package ")
