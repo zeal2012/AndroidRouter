@@ -4,7 +4,7 @@
 本地jar包导入使用方法：
 
 1 导入jar包
-    1）将项目根目录的/jar/router-core-1.0.jar文件添加到到工程的base模块的libs下，在base模块的build.gradle中添加依赖，
+1）将项目根目录的/jar/router-core-1.0.jar文件添加到到工程的base模块的libs下，在base模块的build.gradle中添加依赖，
             如：api files('libs\\router-core-1.0.jar')
             （如果没有base模块，则需要在使用到 @Route的每个模块添加此依赖）
     2）在使用注解 @Route 模块的build.gradle文件中添加注解处理器，如：
