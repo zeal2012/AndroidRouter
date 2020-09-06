@@ -16,7 +16,7 @@ api files('libs\router-core-1.0.jar')
 
 
 
- 2）在使用注解 @Route 的模块的 build.gradle 中添加注解处理器，如：
+ 2）在使用注解（@Route）的模块的 build.gradle 中添加注解处理器，如：
 
 ```
 dependencies{ 
