@@ -1,7 +1,4 @@
-package com.zeal.android.router_core;
-
-import java.util.HashMap;
-import java.util.Map;
+package com.zeal.android.router.core;
 
 public class Router {
 
@@ -11,8 +8,8 @@ public class Router {
 
     private OnRouteListener onRouteListener;
 
-    public OnRouteListener getOnRouteListener() {
-        return onRouteListener;
+    public void addOnRouteListener(OnRouteListener onRouteListener) {
+        this.onRouteListener = onRouteListener;
     }
 
     private static Router instance;
@@ -27,10 +24,6 @@ public class Router {
             }
         }
         return instance;
-    }
-
-    public void setOnRouteListener(OnRouteListener onRouteListener) {
-        this.onRouteListener = onRouteListener;
     }
 
     public Class getClazz(String annotationPath){

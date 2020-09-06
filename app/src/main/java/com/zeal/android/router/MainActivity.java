@@ -6,8 +6,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.zeal.android.router_core.RouteConsts;
-import com.zeal.android.router_core.Router;
+import com.zeal.android.router.core.RouteConsts;
+import com.zeal.android.router.core.Router;
+
 
 public class MainActivity extends AppCompatActivity {
 

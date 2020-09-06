@@ -1,4 +1,4 @@
-package com.zeal.android.router_processor;
+package com.zeal.android.router.core;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

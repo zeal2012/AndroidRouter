@@ -2,13 +2,10 @@ package com.zeal.android.router;
 
 import android.app.Application;
 
-import com.zeal.android.router_core.RouteApp;
-import com.zeal.android.router_core.RouteConsts;
-import com.zeal.android.router_core.RouteMeta;
-import com.zeal.android.router_core.RouteModule1;
-import com.zeal.android.router_core.RouteModule2;
-import com.zeal.android.router_core.utils.RouteUtil;
-import com.zeal.android.router_core.Router;
+import com.zeal.android.router.core.Router;
+import com.zeal.android.router.core.utils.RouteUtil;
+
+import java.lang.reflect.InvocationTargetException;
 
 public class MyApplication extends Application {
 
@@ -16,25 +13,22 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
-        Router.getInstance().setOnRouteListener(new Router.OnRouteListener() {
+        Router.getInstance().addOnRouteListener(new Router.OnRouteListener() {
             @Override
             public Class getClazz(String path) {
-                RouteMeta routeMeta = RouteUtil.getRouteMeta(path);
-                Class clazz = null;
-                switch (routeMeta.getModuleName()) {
-                    case RouteConsts.MODULE_APP:
-                        clazz = RouteApp.getClazz(routeMeta.getActivityTag());
-                        break;
-                    case RouteConsts.MODULE_1:
-                        clazz = RouteModule1.getClazz(routeMeta.getActivityTag());
-                        break;
-                    case RouteConsts.MODULE_2:
-                        clazz = RouteModule2.getClazz(routeMeta.getActivityTag());
-                        break;
+                try {
+                    return RouteUtil.getClass(path);
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                } catch (NoSuchMethodException e) {
+                    e.printStackTrace();
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                } catch (InvocationTargetException e) {
+                    e.printStackTrace();
                 }
-                return clazz;
+                return null;
             }
         });
-
     }
 }

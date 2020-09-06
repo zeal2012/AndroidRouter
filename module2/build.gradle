@@ -31,7 +31,6 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
     implementation project(path: ':router_core')
-    implementation project(path: ':processor')
-    annotationProcessor project(path: ':processor')
+    annotationProcessor project(path: ':router_core')
 
 }

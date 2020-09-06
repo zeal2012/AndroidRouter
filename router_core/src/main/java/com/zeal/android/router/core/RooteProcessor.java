@@ -1,5 +1,7 @@
-package com.zeal.android.router_processor;
+package com.zeal.android.router.core;
 
+
+import com.zeal.android.router.core.utils.RouteUtil;
 
 import java.io.Writer;
 import java.util.Collection;
@@ -19,13 +21,11 @@ import javax.lang.model.util.ElementFilter;
 import javax.tools.JavaFileObject;
 
 // 这里填写要处理的注解类
-@SupportedAnnotationTypes("com.zeal.android.router_processor.Route")
+@SupportedAnnotationTypes("com.zeal.android.router.core.Route")
 @SupportedSourceVersion(SourceVersion.RELEASE_8)
-public class GreetProcessor extends AbstractProcessor {
+public class RooteProcessor extends AbstractProcessor {
 
     private Filer filerUtils;
-
-    private final String PACKAGE_NAME = "com.zeal.android.router_core";
 
     @Override
     public synchronized void init(ProcessingEnvironment processingEnvironment) {
@@ -61,7 +61,7 @@ public class GreetProcessor extends AbstractProcessor {
 
             StringBuffer stringBuffer = new StringBuffer();
             stringBuffer.append("package ")
-                    .append(PACKAGE_NAME)
+                    .append(RouteConsts.CORE_PACKAGE_NAME)
                     .append(";\n\n")
                     .append("import java.util.HashMap;\n")
                     .append("import java.util.Map;\n");
@@ -74,18 +74,19 @@ public class GreetProcessor extends AbstractProcessor {
                 }
             }
             stringBuffer.append("\n");
-            String routeClazzName = "Route" + getModuleName(path);
             stringBuffer.append("public class ")
-                    .append(routeClazzName)
+                    .append(RouteUtil.getSimpleClassName(path))
                     .append(" {\n\n")
-                    .append("    public static Class getClazz(String activityTag) {\n")
+                    .append("    public static Class ")
+                    .append(RouteConsts.METHOD_NAME)
+                    .append("(String activityTag) {\n")
                     .append("        switch (activityTag){\n");
 
             for (TypeElement type : types) {
                 path = type.getAnnotation(Route.class).path();
                 simpleClassName = type.getSimpleName().toString();
                 stringBuffer.append("            case \"")
-                        .append(getActivityTag(path))
+                        .append(RouteUtil.getActivityTag(path))
                         .append("\":\n")
                         .append("                return ")
                         .append(simpleClassName)
@@ -97,7 +98,7 @@ public class GreetProcessor extends AbstractProcessor {
                     .append("}\n");
 
             // 3.生成Java源文件
-            JavaFileObject javaFileObject = processingEnv.getFiler().createSourceFile(PACKAGE_NAME + "." + routeClazzName);
+            JavaFileObject javaFileObject = processingEnv.getFiler().createSourceFile(RouteUtil.getClassName(path));
             Writer writer = javaFileObject.openWriter();
             writer.write(stringBuffer.toString());
             writer.close();
@@ -108,14 +109,6 @@ public class GreetProcessor extends AbstractProcessor {
 
         }
         return false;
-    }
-
-    public static String getModuleName(String routePath) {
-        return routePath.substring(0, routePath.indexOf("/"));
-    }
-
-    public static String getActivityTag(String routePath) {
-        return routePath.substring(routePath.indexOf("/") + 1);
     }
 
 }
