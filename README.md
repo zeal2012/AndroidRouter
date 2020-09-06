@@ -6,7 +6,7 @@
 
 1 导入jar包 
 
-1）将项目根目录的/jar/router-core-1.0.jar文件添加到到工程的base模块的libs下，在base模块的build.gradle中添加依赖
+1）将Demo中的/jar/router-core-1.0.jar文件添加到到工程的base模块的libs下，在base模块的build.gradle中添加依赖
 
 ```
 api files('libs\router-core-1.0.jar') 
