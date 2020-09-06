@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import com.zeal.android.router.R;
-import com.zeal.android.router.core.Route;
+import com.zeal.android.router.core.annotation.Route;
 
 @Route(path = "/app/ThirdActivity_tag")
 public class ThirdActivity extends Activity {

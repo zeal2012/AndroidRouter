@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 
-import com.zeal.android.router.core.Route;
+import com.zeal.android.router.core.annotation.Route;
 import com.zeal.android.router.core.Router;
 
 @Route(path = "/module2/Module2Activity")

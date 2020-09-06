@@ -1,11 +1,10 @@
 package com.zeal.android.router;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
-import com.zeal.android.router.core.Route;
+import com.zeal.android.router.core.annotation.Route;
 
 @Route(path = "/app/SecondActivityAlias")
 public class SecondActivity extends AppCompatActivity {

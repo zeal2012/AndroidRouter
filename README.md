@@ -34,13 +34,7 @@ Router.getInstance().addOnRouteListener(new Router.OnRouteListener() {
             public Class<?> getClazz(String path) {
                 try {
                     return RouteUtil.getClazz(path);
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
-                } catch (NoSuchMethodException e) {
-                    e.printStackTrace();
-                } catch (IllegalAccessException e) {
-                    e.printStackTrace();
-                } catch (InvocationTargetException e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
                 return null;

@@ -1,4 +1,4 @@
-package com.zeal.android.router.core;
+package com.zeal.android.router.core.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -10,7 +10,7 @@ import java.lang.annotation.Target;
 @Target(ElementType.TYPE)
 public @interface Route {
     /**
-     *路由的路径，标识一个路由节点, /module/activity
+     *路由的路径，标识一个路由节点, 格式/module/activity别名
      */
     String path();
 }

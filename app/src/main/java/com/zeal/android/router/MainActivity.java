@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.zeal.android.router.core.Route;
+import com.zeal.android.router.core.annotation.Route;
 import com.zeal.android.router.core.Router;
 
 @Route(path = "/app/MainActivity_")

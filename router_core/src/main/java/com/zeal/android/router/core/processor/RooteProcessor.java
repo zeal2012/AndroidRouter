@@ -1,6 +1,8 @@
-package com.zeal.android.router.core;
+package com.zeal.android.router.core.processor;
 
 
+import com.zeal.android.router.core.RouteConsts;
+import com.zeal.android.router.core.annotation.Route;
 import com.zeal.android.router.core.utils.RouteUtil;
 
 import java.io.Writer;
@@ -9,7 +11,6 @@ import java.util.List;
 import java.util.Set;
 
 import javax.annotation.processing.AbstractProcessor;
-import javax.annotation.processing.Filer;
 import javax.annotation.processing.ProcessingEnvironment;
 import javax.annotation.processing.RoundEnvironment;
 import javax.annotation.processing.SupportedAnnotationTypes;
@@ -21,7 +22,7 @@ import javax.lang.model.util.ElementFilter;
 import javax.tools.JavaFileObject;
 
 // 这里填写要处理的注解类
-@SupportedAnnotationTypes("com.zeal.android.router.core.Route")
+@SupportedAnnotationTypes("com.zeal.android.router.core.annotation.Route")
 @SupportedSourceVersion(SourceVersion.RELEASE_8)
 public class RooteProcessor extends AbstractProcessor {
 

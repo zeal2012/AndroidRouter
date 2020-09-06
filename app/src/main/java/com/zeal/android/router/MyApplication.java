@@ -5,8 +5,6 @@ import android.app.Application;
 import com.zeal.android.router.core.Router;
 import com.zeal.android.router.core.utils.RouteUtil;
 
-import java.lang.reflect.InvocationTargetException;
-
 public class MyApplication extends Application {
 
     @Override
@@ -18,13 +16,7 @@ public class MyApplication extends Application {
             public Class<?> getClazz(String path) {
                 try {
                     return RouteUtil.getClazz(path);
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
-                } catch (NoSuchMethodException e) {
-                    e.printStackTrace();
-                } catch (IllegalAccessException e) {
-                    e.printStackTrace();
-                } catch (InvocationTargetException e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
                 return null;
