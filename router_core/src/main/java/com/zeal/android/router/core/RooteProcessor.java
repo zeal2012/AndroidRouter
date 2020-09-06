@@ -25,12 +25,9 @@ import javax.tools.JavaFileObject;
 @SupportedSourceVersion(SourceVersion.RELEASE_8)
 public class RooteProcessor extends AbstractProcessor {
 
-    private Filer filerUtils;
-
     @Override
     public synchronized void init(ProcessingEnvironment processingEnvironment) {
         super.init(processingEnvironment);
-        filerUtils = processingEnv.getFiler();
     }
 
     @Override
