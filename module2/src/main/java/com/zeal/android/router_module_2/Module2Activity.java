@@ -20,8 +20,8 @@ public class Module2Activity extends Activity {
         findViewById(R.id.btn_test).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Class clazzByAnnotation = Router.getInstance().getClazz("/app/SecondActivity_tag");
-                startActivity(new Intent(Module2Activity.this, clazzByAnnotation));
+                Class clazz = Router.getInstance().getClazz("/app/SecondActivityAlias");
+                startActivity(new Intent(Module2Activity.this, clazz));
             }
         });
     }
